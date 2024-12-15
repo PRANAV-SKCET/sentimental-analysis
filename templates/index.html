@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      form {
+        margin-top: 20px;
+      }
+      input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+      }
+      .input-text {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sentiment Analysis with Emoji Feedback</h1>
+    <form action="/analyze" method="post">
+      <input type="text" name="text" placeholder="Enter a sentence" />
+      <input type="submit" value="Analyze" />
+    </form>
+
+    {% if input_text %}
+    <div class="input-text">Your Input: "{{ input_text }}"</div>
+    {% endif %}
+
+    {% if sentiment_label %}
+    <div class="result">Sentiment: {{ sentiment_label }} {{ emoji }}</div>
+    {% endif %}
+  </body>
+</html>
